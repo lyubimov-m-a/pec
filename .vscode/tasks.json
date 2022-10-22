@@ -1,0 +1,17 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile UI",
+            "type": "shell",
+            "command": "pyuic6 app.ui -o ui.py"
+        },
+        {
+            "label": "Debug run",
+            "type": "shell",
+            "command": "./app.py --log-level debug"
+        }
+    ]
+}
