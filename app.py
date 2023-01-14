@@ -20,6 +20,8 @@ LOGGER = logging.getLogger(__name__)
 
 @dataclass()
 class InputData:
+    """Input fields data storage"""
+
     alcohol: bool = False
     bilirubin: float = 0
     creatinine: float = 0
@@ -34,13 +36,17 @@ class InputData:
             CALC.calculate_risk_day3()
 
     def reset(self):
-        self.__init__()
+        """Clear input fields data"""
+        self.__init__()  # pylint: disable=unnecessary-dunder-call
 
 class Calculator:
+    """Risk calculator"""
+
     def calculate_risk_day1(self):
+        """Calculate risk on day 1"""
         risk = 0
         if DATA.bilirubin and DATA.creatinine and DATA.sofa:
-            z = (
+            z = (  # pylint: disable=invalid-name
                 -7.001
                 + 1.96 * DATA.alcohol
                 - 0.024 * DATA.bilirubin
@@ -52,9 +58,10 @@ class Calculator:
         WINDOW.set_risk(1, risk)
 
     def calculate_risk_day3(self):
+        """Calculate risk on day 3"""
         risk = 0
         if DATA.creatinine and DATA.sofa and DATA.urea:
-            z = (
+            z = (  # pylint: disable=invalid-name
                 -6.8
                 + 1.27 * DATA.alcohol
                 - 0.008 * DATA.creatinine
@@ -67,28 +74,35 @@ class Calculator:
 
 
 class UI(QMainWindow, MainWindow):
+    """User interface"""
+
     def __init__(self):
         super().__init__()
         self.setupUi(self)
 
     def clear(self):
+        """Clear input fields"""
         DATA.reset()
         self.setupUi(self)
 
     def set_alcohol(self, alcohol: bool):
+        """Set alcohol value"""
         DATA.alcohol = alcohol
         self.alcohol_1.setChecked(alcohol)
         self.alcohol_3.setChecked(alcohol)
 
     def set_bilirubin(self, bilirubin: float):
+        """Set bilirubin value"""
         DATA.bilirubin = bilirubin
 
     def set_creatinine(self, creatinine: float):
+        """Set creatinine value"""
         DATA.creatinine = creatinine
         self.creatinine_1.setValue(creatinine)
         self.creatinine_3.setValue(creatinine)
 
     def set_risk(self, day: int, risk: float):
+        """Set risk value"""
         value = f"{round(risk, 2)}%" if risk else UNKNOWN
         getattr(self, f"risk_{day}").setText(value)
 
@@ -97,11 +111,13 @@ class UI(QMainWindow, MainWindow):
             getattr(self, f"algorithm_{day}").setText(ALGORITHMS[f"{day}_{threshold}"])
 
     def set_sofa(self, sofa: int):
+        """Set sofa value"""
         DATA.sofa = sofa
         self.sofa_1.setValue(sofa)
         self.sofa_3.setValue(sofa)
 
     def set_urea(self, urea: float):
+        """Set urea value"""
         DATA.urea = urea
 
 
