@@ -101,6 +101,9 @@
         </item>
         <item row="9" column="0" colspan="3">
          <widget class="QTextBrowser" name="algorithm_1">
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
           <property name="html">
            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -182,6 +185,9 @@ p, li { white-space: pre-wrap; }
         </item>
         <item row="10" column="0" colspan="3">
          <widget class="QTextBrowser" name="algorithm_3">
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
           <property name="html">
            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -293,6 +299,9 @@ p, li { white-space: pre-wrap; }
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="0">
          <widget class="QTextBrowser" name="textBrowser_about">
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
           <property name="html">
            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
